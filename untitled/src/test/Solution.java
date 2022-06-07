@@ -47,6 +47,9 @@ class Solution {
     }
 
     public static void main(String[] args) {
+        String num1 = "3";
+        String num2="30";
+        System.out.println(num1.compareTo(num2));
         System.out.println(solution(new int[] {6, 10, 2}));
     }
 }
