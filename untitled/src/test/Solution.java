@@ -131,13 +131,13 @@ class Solution {
         System.out.println(solution(new int[] {6, 10, 2}));
     }
 }*/
-
+/*
 class Solution {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(solution(new int[] {1,3,2,4,2})));
     }
     public static int[] solution(int[] answers) {
-        ArrayList<Integer> arr = new ArrayList<Integer>();
+        int[] answer = {};
         int[] num2 = {2,1,2,3,2,4,2,5};
         int[] num3 = {3,3,1,1,2,2,4,4,5,5};
         int[] result = {0,0,0};
@@ -152,18 +152,26 @@ class Solution {
                 result[2]++;
             }
         }
-        int iMax=0;
-        for(int i: result) iMax=Math.max(i,iMax);
 
-        for(int i=0; i<result.length;i++){
-            if(result[i]==iMax){
-                arr.add(i);
-            }
-        }
-        int[] answer = new int[arr.size()];
-        for (int i = 0; i < arr.size(); i++) {
-            answer[i]=arr.get(i);
-        }
+        System.out.println(Arrays.toString(result));
         return answer;
+    }
+}*/
+
+class Solution {
+    public int solution(String numbers) {
+        int answer = 0;
+        int[] nums = new int[numbers.length()];
+        for (int i = 0; i < numbers.length(); i++) {
+            nums[i]=numbers.charAt(i);
+        }
+
+        
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution("011"));
     }
 }
