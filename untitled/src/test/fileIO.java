@@ -3,6 +3,7 @@ package test;
 import java.io.*;
 
 public class fileIO {
+
     public static void main(String[] args) throws IOException {
         File file = new File("");
         PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
