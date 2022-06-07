@@ -1,10 +1,15 @@
 package test;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class fileIO {
     public static void main(String[] args) throws IOException {
+        File file = new File("");
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+        pw.println("asdsad");
+        pw.close();
+
+
         /*
         File file = new File("c:\\");
         File filelist[] = file.listFiles();
@@ -28,10 +33,7 @@ public class fileIO {
         }else {
             System.out.println("fail");
         }*/
-        File newDir = new File("Temp");
-        if(newDir.exists()){
-            System.out.println("존재");
-        }
+
 
     }
 }
