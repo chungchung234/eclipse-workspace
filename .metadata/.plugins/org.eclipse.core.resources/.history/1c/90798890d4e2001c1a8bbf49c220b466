@@ -1,0 +1,13 @@
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int Array[] = new int[5];
+		int[] Array1 = {1,2,3};
+		Array= Array1.clone();
+		System.out.print(Array1[1]);
+	
+	}
+
+}

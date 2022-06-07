@@ -1,0 +1,11 @@
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int Array[1,2,3] = new int[5];
+		System.out.print(Array);
+	
+	}
+
+}
