@@ -66,8 +66,32 @@ public class phoneBook {
         br.close();
     }
 
-    private static void modify() {
-        
+    private static void modify() throws IOException {
+        System.out.println("Search What?\n1.name\n2.phoneNumber");
+        br = new BufferedReader(new FileReader(file));
+
+        int n = scanner.nextInt();
+        String str;
+        switch (n){
+            case 1:
+                System.out.println("name:");
+                String name = scanner.next();
+                str = "";
+                while((str = br.readLine()) != null){
+                    if(Arrays.asList(str.split(",")[0]).contains(name)) System.out.println(str);
+                }
+                break;
+            case 2:
+                System.out.println("phoneNumber:");
+                String phoneNumber = scanner.next();
+                str = "";
+                while((str = br.readLine()) != null){
+                    if(Arrays.asList(str.split(",")[1]).contains(phoneNumber)) System.out.println(str);
+                }
+                break;
+            default:
+                br.close();
+        }
     }
 
     private static void search() throws IOException {
@@ -82,7 +106,7 @@ public class phoneBook {
                 String name = scanner.next();
                 str = "";
                 while((str = br.readLine()) != null){
-                    if(Arrays.asList(str.split(",")).contains(name)) System.out.println(str);
+                    if(Arrays.asList(str.split(",")[0]).contains(name)) System.out.println(str);
                 }
                 break;
             case 2:
@@ -90,7 +114,7 @@ public class phoneBook {
                 String phoneNumber = scanner.next();
                 str = "";
                 while((str = br.readLine()) != null){
-                    if(Arrays.asList(str.split(",")).contains(phoneNumber)) System.out.println(str);
+                    if(Arrays.asList(str.split(",")[1]).contains(phoneNumber)) System.out.println(str);
                 }
                 break;
             default:
@@ -98,8 +122,32 @@ public class phoneBook {
         }
     }
 
-    private static void delete() {
-        
+    private static void delete() throws IOException {
+        System.out.println("Search What?\n1.name\n2.phoneNumber");
+        br = new BufferedReader(new FileReader(file));
+
+        int n = scanner.nextInt();
+        String str;
+        switch (n){
+            case 1:
+                System.out.println("name:");
+                String name = scanner.next();
+                str = "";
+                while((str = br.readLine()) != null){
+                    if(Arrays.asList(str.split(",")[0]).contains(name)) System.out.println(str);
+                }
+                break;
+            case 2:
+                System.out.println("phoneNumber:");
+                String phoneNumber = scanner.next();
+                str = "";
+                while((str = br.readLine()) != null){
+                    if(Arrays.asList(str.split(",")[1]).contains(phoneNumber)) System.out.println(str);
+                }
+                break;
+            default:
+                br.close();
+        }
     }
 
     private static void add() throws IOException {
