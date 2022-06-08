@@ -159,14 +159,14 @@ class Solution {
 }*/
 
 class Solution {
-    public int solution(String numbers) {
+    public static int solution(String numbers) {
         int answer = 0;
         int[] nums = new int[numbers.length()];
         for (int i = 0; i < numbers.length(); i++) {
             nums[i]=numbers.charAt(i);
         }
 
-        
+
 
         return answer;
     }
