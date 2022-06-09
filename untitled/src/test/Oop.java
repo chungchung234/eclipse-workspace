@@ -24,11 +24,14 @@ public class Oop {
         this.number = number;
     }
     public static void main(String[] args) {
-        int array[] = {1,2,3};
-        Oop O = new Oop();
-        Oop O1 = new Oop(25,"chung");
-        System.out.println(O1.toString());
-        System.out.println(O.getThis());
+        Override o = new Override();
+        Override2 o2 = new Override2();
+
+        ParentsClass pc1 = new Override();
+        ParentsClass pc2 = new Override2();
+        o.method();
+        pc1.method();
+        pc2.method();
     }
 
 }

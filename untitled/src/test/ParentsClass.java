@@ -9,6 +9,6 @@ public class ParentsClass {
         System.out.println("parent str");
     }
     public void method(){
-
+        System.out.println("method");
     }
 }
