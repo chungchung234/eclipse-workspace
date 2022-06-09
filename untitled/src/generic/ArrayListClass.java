@@ -25,9 +25,16 @@ public class ArrayListClass {
         MyData md = new MyData("insert",1234);
 
         for (int i = 0; i < obj.size(); i++) {
-            
+            if(obj.get(i).equals(md.getName())){
+                obj.set(i,md);
+            }
         }
-
+        System.out.println(obj.toString());
+        for (int i = 0; i < obj.size(); i++) {
+            if(obj.get(i).getName().equals(md.getName())){
+                obj.remove(i);
+            }
+        }
 
     }
 
