@@ -1,6 +1,7 @@
 package generic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ArrayListClass {
@@ -35,6 +36,18 @@ public class ArrayListClass {
                 obj.remove(i);
             }
         }
+
+
+        HashMap<Integer,String > hmap = new HashMap<>();
+
+        hmap.put(1,"one");
+        hmap.put(2,"two");
+
+        String val = hmap.get(1);
+
+        hmap.remove(1);
+
+        
 
     }
 
