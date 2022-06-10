@@ -32,7 +32,7 @@ public class ArrayListClass {
         }
         System.out.println(obj.toString());
         for (int i = 0; i < obj.size(); i++) {
-            if(obj.get(i).getName().equals(md.getName())){
+            if (obj.get(i).getName().equals(md.getName())) {
                 obj.remove(i);
             }
         }
@@ -47,7 +47,7 @@ public class ArrayListClass {
 
         hmap.remove(1);
 
-        
+
 
     }
 
