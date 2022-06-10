@@ -46,7 +46,7 @@ public class Dao {
         ArrayList<Human> data = FileIO.readFile();
         for (Human human:
              data) {
-            if(Batter instanceof human){
+            if(human instanceof Batter){
                 System.out.println(human);
                 System.out.println("true");
             }
