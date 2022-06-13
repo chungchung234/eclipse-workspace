@@ -35,20 +35,12 @@ public class MainClass {
 					"Port : "+clientSocket.getPort());
 			
 			
-			
+
+			new ServerThread(clientSocket,list).start();;	
 		}
+		
 //		while(true) {
-//					BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-//		String str= reader.readLine();
-//		
-//		System.out.println("client로부터 받은 메세지 :" +str);
-//		
-//		//성신(send)
-//		PrintWriter writer = new PrintWriter(clientSocket.getOutputStream());
-//		writer.println(str);
-//		writer.flush();
-//		}
-		//수신(recv)
+
 
 		
 		//clientSocket.close();

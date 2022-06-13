@@ -1,13 +1,21 @@
-package com.chung.rrs;
+package com.chung.rrs.controller;
 
 
 import java.io.IOException;
 import java.util.Scanner;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.chung.rrs.DTO.Restaurant;
 import com.chung.rrs.service.serviceImpl.rreServiceImpl;
-
-public class Main {
+@RestController
+public class rrsController {
+    @RequestMapping("/")
+    public String hello() {
+        return "Hello World!";
+    }
+    
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         loop:while (true){
@@ -47,10 +55,10 @@ public class Main {
                             	rreServiceImpl.delete();
                                 break;
                             case 3:
-                                Restaurant.search();
+                            	rreServiceImpl.search();
                                 break;
                             case 4:
-                                Restaurant.modify();
+                            	rreServiceImpl.modify();
                                 break;
                             case 5:
                                 break loop2;
