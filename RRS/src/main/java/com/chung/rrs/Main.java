@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import com.chung.rrs.DTO.Restaurant;
+import com.chung.rrs.service.serviceImpl.rreServiceImpl;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -21,10 +22,10 @@ public class Main {
             int n = scanner.nextInt();
             switch (n){
                 case 1:
-                    Restaurant.all_data();
+                    rreServiceImpl.all_data();
                     break;
                 case 2:
-                    Restaurant.pick_Me_One();
+                	rreServiceImpl.pick_Me_One();
                     break;
                 case 3:
                     loop2 : while (true) {
@@ -40,10 +41,10 @@ public class Main {
                         int m = scanner.nextInt();
                         switch (m) {
                             case 1:
-                                Restaurant.add();
+                            	rreServiceImpl.add();
                                 break;
                             case 2:
-                                Restaurant.delete();
+                            	rreServiceImpl.delete();
                                 break;
                             case 3:
                                 Restaurant.search();
