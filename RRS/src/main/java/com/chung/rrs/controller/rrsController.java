@@ -7,7 +7,7 @@ import java.util.Scanner;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chung.rrs.DTO.Restaurant;
+import com.chung.rrs.dto.RestaurantDto;
 import com.chung.rrs.service.serviceImpl.rreServiceImpl;
 @RestController
 public class rrsController {
@@ -22,7 +22,7 @@ public class rrsController {
             System.out.println("____________________________________________________________");
             System.out.println("Menu\t\t\t\tDescription" +
                     "\n1.All_data\t\t\tAll Restaurant Info Sort By Rating" +
-                    "\n2.Pick_Me_One\t\tPick Random Restaurant" +
+                    "\n2.Pick_Me_One\t\t\tPick Random Restaurant" +
                     "\n3.Management_data\t"+
                     "\n4.Exit");
             System.out.println("____________________________________________________________");

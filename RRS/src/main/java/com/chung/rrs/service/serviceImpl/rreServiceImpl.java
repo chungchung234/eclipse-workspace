@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import com.chung.rrs.DTO.Restaurant;
-import com.chung.rrs.IO.FileIO;
+import com.chung.rrs.dto.RestaurantDto;
+import com.chung.rrs.io.FileIO;
 import com.chung.rrs.service.rrsService;
 
 import fomat.Format;
@@ -28,7 +28,7 @@ public class rreServiceImpl implements rrsService{
             String signature_Menu = Format.menu(temp[2]);
             int menu_Price = Format.price(temp[3]);
             int rating = Format.rating(temp[4]);
-            Restaurant restaurant = new Restaurant(name, phone, signature_Menu, menu_Price, rating);
+            RestaurantDto restaurant = new RestaurantDto(name, phone, signature_Menu, menu_Price, rating);
             //id 구현해서 하나 추가할때마다 카운트 증가하게 하고싶은데 텍스트파일을 매번 읽을 수 도 없구 어카지;;;
             FileIO.insert_Restaurant(restaurant);
         }
@@ -37,7 +37,7 @@ public class rreServiceImpl implements rrsService{
     }
 
     private static boolean check_Format(String[] temp) {
-        Restaurant.temp = temp;
+        RestaurantDto.temp = temp;
         if(temp[0].isBlank()){
             System.out.println("Name doesn't exist");
             return true;
@@ -109,7 +109,7 @@ public class rreServiceImpl implements rrsService{
         if(check_Format(new String[]{name, "0", "signature_Menu", "0", "0"})){
             search();
         }
-        Restaurant restaurant = FileIO.search_Restaurant(name);
+        RestaurantDto restaurant = FileIO.search_Restaurant(name);
         if(restaurant != null){
             System.out.println(
                     restaurant.getString()
@@ -136,7 +136,7 @@ public class rreServiceImpl implements rrsService{
         String signature_Menu = Format.menu(temp[2]);
         int menu_Price = Format.price(temp[3]);
         int rating = Format.rating(temp[4]);
-        Restaurant restaurant = new Restaurant(name,phone,signature_Menu,menu_Price,rating);
+        RestaurantDto restaurant = new RestaurantDto(name,phone,signature_Menu,menu_Price,rating);
         //id 구현해서 하나 추가할때마다 카운트 증가하게 하고싶은데 텍스트파일을 매번 읽을 수 도 없구 어카지;;;
         if(FileIO.update_Restaurant(restaurant)){
             System.out.println("Modify Success");
@@ -149,11 +149,11 @@ public class rreServiceImpl implements rrsService{
     }
 
     public static void all_data() throws IOException {
-        ArrayList<Restaurant> data = FileIO.read_Restaurant();
+        ArrayList<RestaurantDto> data = FileIO.read_Restaurant();
 
         Collections.sort(data);
         System.out.println("Name\tPhoneNumber\tSignature_menu\tPrice\tRating");
-        for (Restaurant datum : data) {
+        for (RestaurantDto datum : data) {
             System.out.println(datum.getString());
         }
         System.out.println("Enter 'X' Go Menu");
@@ -161,7 +161,7 @@ public class rreServiceImpl implements rrsService{
     }
     
     public static void pick_Me_One() throws IOException {
-        Restaurant restaurant = FileIO.random_Restaurant();
+        RestaurantDto restaurant = FileIO.random_Restaurant();
         if(restaurant != null){
             System.out.println(
                     restaurant.getString()

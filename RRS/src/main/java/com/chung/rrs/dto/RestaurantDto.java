@@ -1,15 +1,15 @@
-package com.chung.rrs.DTO;
+package com.chung.rrs.dto;
 
 
 
 import java.io.IOException;
 import java.util.*;
 
-import com.chung.rrs.IO.FileIO;
+import com.chung.rrs.io.FileIO;
 
 import fomat.Format;
 
-public class Restaurant implements Comparable<Restaurant>{
+public class RestaurantDto implements Comparable<RestaurantDto>{
     public static String[] temp;
     String name;
     String phone;
@@ -27,7 +27,7 @@ public class Restaurant implements Comparable<Restaurant>{
      * @param menu_Price    int 메뉴 가격
      * @param rating    int 평점
      */
-    public Restaurant(String name, String phone, String signature_Menu, int menu_Price, int rating){
+    public RestaurantDto(String name, String phone, String signature_Menu, int menu_Price, int rating){
         this.name = name;
         this.phone = phone;
         this.signature_Menu=signature_Menu;
@@ -66,7 +66,7 @@ public class Restaurant implements Comparable<Restaurant>{
     }
 
     @Override
-    public int compareTo(Restaurant restaurant) {
+    public int compareTo(RestaurantDto restaurant) {
         if (restaurant.getRating() > rating) {
             return 1;
         } else if (restaurant.getRating() < rating) {

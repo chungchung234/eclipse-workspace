@@ -1,25 +1,25 @@
-package com.chung.rrs.IO;
+package com.chung.rrs.io;
 
 
 
 import java.io.*;
 import java.util.ArrayList;
 
-import com.chung.rrs.DTO.Restaurant;
+import com.chung.rrs.dto.RestaurantDto;
 
 public class FileIO {
     private static File file = new File("restaurant_rating.txt");
 
-    public static void insert_Restaurant(Restaurant restaurant) throws IOException {
+    public static void insert_Restaurant(RestaurantDto restaurant) throws IOException {
 
-        ArrayList<Restaurant> data = read_Restaurant();
+        ArrayList<RestaurantDto> data = read_Restaurant();
         data.add(restaurant);
         write_Restaurant(data);
 
 
     }
     public static boolean delete_Restaurant(String name) throws IOException {
-        ArrayList<Restaurant> data = read_Restaurant();
+        ArrayList<RestaurantDto> data = read_Restaurant();
         boolean find = false;
         for (int i = 0; i < data.size(); i++) {
             if(data.get(i).getName().equals(name)){
@@ -36,7 +36,7 @@ public class FileIO {
     }
 
 
-    public static void write_Restaurant(ArrayList<Restaurant> data) throws IOException {
+    public static void write_Restaurant(ArrayList<RestaurantDto> data) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
         for (int i = 0; i < data.size(); i++) {
             bw.write(data.get(i).getName()+"/"+
@@ -48,17 +48,17 @@ public class FileIO {
         bw.close();
     }
 
-    public static ArrayList<Restaurant> read_Restaurant() throws IOException {
+    public static ArrayList<RestaurantDto> read_Restaurant() throws IOException {
         if(!file.exists()){
             file.createNewFile();
         }
-        ArrayList<Restaurant> txt = new ArrayList<Restaurant>();
+        ArrayList<RestaurantDto> txt = new ArrayList<RestaurantDto>();
         String str = "";
 
         BufferedReader br = new BufferedReader(new FileReader(file));
         while ((str=br.readLine())!=null){
             String temp[] = str.split("/");
-            Restaurant restaurant = new Restaurant(
+            RestaurantDto restaurant = new RestaurantDto(
                     temp[0],
                     temp[1],
                     temp[2],
@@ -71,8 +71,8 @@ public class FileIO {
         return txt;
     }
 
-    public static boolean update_Restaurant(Restaurant restaurant) throws IOException {
-        ArrayList<Restaurant> data = read_Restaurant();
+    public static boolean update_Restaurant(RestaurantDto restaurant) throws IOException {
+        ArrayList<RestaurantDto> data = read_Restaurant();
         boolean find = false;
         for (int i = 0; i < data.size(); i++) {
             if(data.get(i).getName().equals(restaurant.getName())){
@@ -90,9 +90,9 @@ public class FileIO {
     }
 
 
-    public static Restaurant search_Restaurant(String name) throws IOException {
-        ArrayList<Restaurant> data = read_Restaurant();
-        Restaurant restaurant = null;
+    public static RestaurantDto search_Restaurant(String name) throws IOException {
+        ArrayList<RestaurantDto> data = read_Restaurant();
+        RestaurantDto restaurant = null;
         for (int i = 0; i < data.size(); i++) {
             if (data.get(i).getName().equals(name)) {
                 restaurant = data.get(i);
@@ -102,8 +102,8 @@ public class FileIO {
         return restaurant;
     }
 
-    public static Restaurant random_Restaurant() throws IOException {
-        ArrayList<Restaurant> data = read_Restaurant();
+    public static RestaurantDto random_Restaurant() throws IOException {
+        ArrayList<RestaurantDto> data = read_Restaurant();
         if(data != null){
             int i = (int) (Math.random() * data.size());
             return data.get(i);
