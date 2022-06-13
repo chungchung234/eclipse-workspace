@@ -32,7 +32,7 @@ public class ServerThread extends Thread{
 				PrintWriter writer;
 				for(Socket sc : list) {
 					if(sc != socket) {
-						writer = new PrintWriter(socket.getOutputStream());
+						writer = new PrintWriter(sc.getOutputStream());
 						writer.println(str);
 						writer.flush();						
 					
@@ -44,14 +44,18 @@ public class ServerThread extends Thread{
 				Thread.sleep(300);
 			}
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				System.out.println(socket.getInetAddress()+"LOST");
+				list.remove(socket);
+				try {
+					socket.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 		}
-
 		}
 	
 }
