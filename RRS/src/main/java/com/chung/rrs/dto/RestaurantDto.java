@@ -73,6 +73,5 @@ public class RestaurantDto implements Comparable<RestaurantDto>{
             return -1;
         }
         return 0;
-
     }
 }
