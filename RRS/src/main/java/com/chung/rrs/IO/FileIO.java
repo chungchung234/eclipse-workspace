@@ -10,7 +10,7 @@ import com.chung.rrs.DTO.Restaurant;
 public class FileIO {
     private static File file = new File("restaurant_rating.txt");
 
-    static void insert_Restaurant(Restaurant restaurant) throws IOException {
+    public static void insert_Restaurant(Restaurant restaurant) throws IOException {
 
         ArrayList<Restaurant> data = read_Restaurant();
         data.add(restaurant);
@@ -18,7 +18,7 @@ public class FileIO {
 
 
     }
-    static boolean delete_Restaurant(String name) throws IOException {
+    public static boolean delete_Restaurant(String name) throws IOException {
         ArrayList<Restaurant> data = read_Restaurant();
         boolean find = false;
         for (int i = 0; i < data.size(); i++) {
@@ -36,7 +36,7 @@ public class FileIO {
     }
 
 
-    private static void write_Restaurant(ArrayList<Restaurant> data) throws IOException {
+    public static void write_Restaurant(ArrayList<Restaurant> data) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
         for (int i = 0; i < data.size(); i++) {
             bw.write(data.get(i).getName()+"/"+
@@ -48,7 +48,7 @@ public class FileIO {
         bw.close();
     }
 
-    static ArrayList<Restaurant> read_Restaurant() throws IOException {
+    public static ArrayList<Restaurant> read_Restaurant() throws IOException {
         if(!file.exists()){
             file.createNewFile();
         }
@@ -71,7 +71,7 @@ public class FileIO {
         return txt;
     }
 
-    static boolean update_Restaurant(Restaurant restaurant) throws IOException {
+    public static boolean update_Restaurant(Restaurant restaurant) throws IOException {
         ArrayList<Restaurant> data = read_Restaurant();
         boolean find = false;
         for (int i = 0; i < data.size(); i++) {
